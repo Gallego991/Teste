@@ -1,10 +1,10 @@
-import psycopg2
+import mysql.connector
 
 
-class Postg:
+class MSQL:
 
-    def __init__(self, local, nome, usuario, senha, entrada):
-        self.name = psycopg2.connect(host=local, dbname=nome, user=usuario, password=senha, port=entrada)
+    def __init__(self, local, usuario, senha, entrada, nome):
+        self.name = mysql.connector.connect(host=local, user=usuario, password=senha, port=entrada, database=nome)
 
     def criardb(self, nomedb):
         sql = f"CREATE DATABASE {nomedb}"
